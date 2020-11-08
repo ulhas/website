@@ -6,8 +6,8 @@
  */
 
 import React from "react"
-import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import {Helmet} from "react-helmet"
+import {useStaticQuery, graphql} from "gatsby"
 
 interface SEOProps {
   description: string
@@ -16,8 +16,8 @@ interface SEOProps {
   meta: any[]
 }
 
-const SEO = ({ description, lang, meta, title } : SEOProps) => {
-  const { site } = useStaticQuery(
+const SEO = ({description, lang, meta, title}: SEOProps) => {
+  const {site} = useStaticQuery(
     graphql`
       query {
         site {

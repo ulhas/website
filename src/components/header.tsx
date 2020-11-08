@@ -1,11 +1,11 @@
-import { Link } from "gatsby"
+import {Link} from "gatsby"
 import React from "react"
 
 interface HeaderProps {
   siteTitle: string
 }
 
-const Header = ({ siteTitle }: HeaderProps) => (
+const Header = ({siteTitle}: HeaderProps) => (
   <header>
     <Link
       to="/"
