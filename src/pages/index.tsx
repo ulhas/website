@@ -1,16 +1,15 @@
 import React from "react"
 
 import Layout from "../components/layout"
-import HeroImage from "../components/hero-image"
 import SEO from "../components/seo"
+import HeroSection from "../components/hero-section"
+import Navigation from "../components/navigation"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Ulhas | Home" />
-    <div className="bg-red-100 rounded-lg p-2">
-      <p>I'm Ulhas. It's a pleasure to meet you.</p>
-      <HeroImage />
-    </div>
+    <Navigation />
+    <HeroSection />
   </Layout>
 )
 
