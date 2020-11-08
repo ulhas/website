@@ -1,15 +1,15 @@
 import React from "react"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
+import HeroImage from "../components/hero-image"
 import SEO from "../components/seo"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Ulhas | Home" />
-    <div className="bg-white rounded-lg p-6">
+    <div className="bg-red-100 rounded-lg p-2">
       <p>I'm Ulhas. It's a pleasure to meet you.</p>
-      <Image />
+      <HeroImage />
     </div>
   </Layout>
 )
