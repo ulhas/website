@@ -15,6 +15,9 @@ const Links = ({className}: IntrinsicProps) => (
     <li className="lg:inline px-6 text-blue-500 hover:text-blue-800">
       <a href="https://twitter.com/ulhas_sm">TWITTER</a>
     </li>
+    <li className="lg:inline px-6 text-teal-500 hover:text-teal-800">
+      <a href="https://linkedin.com/in/ulhasm">LINKEDIN</a>
+    </li>
   </ul>
 )
 
