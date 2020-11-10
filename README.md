@@ -1,5 +1,4 @@
 # Ulhas's Personal Website
----
 
 This website is made using GatsbyJS
 
