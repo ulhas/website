@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="title">Welcome to my digital garden!</h1>
+<h2 class="subtitle">All Posts</h2>
+<ul>
+  {% for page in section.pages %}
+  <li>
+    <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock content %}
