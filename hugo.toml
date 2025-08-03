@@ -10,6 +10,16 @@ copyright = "Copyright © 2025, Ulhas."
 # Generate a nice robots.txt for SEO
 enableRobotsTXT = true
 
+# Pagination
+[pagination]
+  pagerSize = 5
+
+# Allow raw HTML in markdown
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 # URL structure
 [permalinks]
   posts = "/posts/:slug/"

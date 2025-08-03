@@ -14,20 +14,20 @@
 
 {{ $posts := where .Site.RegularPages "Section" "posts" }} {{ range first 3
 $posts.ByDate.Reverse }}
-<article style="margin-bottom: 2em">
-    <h3 style="margin-bottom: 0.2em">
+<article>
+    <h3 style="margin-bottom: 0.1em">
         <a href="{{ .Permalink }}">{{ .Title }}</a>
     </h3>
     <time
         datetime='{{ .Date.Format "2006-01-02" }}'
-        style="font-size: 0.9em; color: #666"
+        style="font-size: 0.9em; color: #666; display: inline-block; margin-top: 0;"
     >
         {{ .Date.Format (default "02 Jan, 2006" .Site.Params.dateFormat) }}
     </time>
     {{ with .Description }}
-    <p style="margin-top: 0.5em">{{ . }}</p>
+    <p style="margin-top: 0.3em; margin-bottom: 0.3em;">{{ . }}</p>
     {{ else }}
-    <p style="margin-top: 0.5em">{{ .Summary }}</p>
+    <p style="margin-top: 0.3em; margin-bottom: 0.3em;">{{ .Summary }}</p>
     {{ end }}
 </article>
 {{ end }}
