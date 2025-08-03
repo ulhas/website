@@ -57,6 +57,8 @@
           <span class="tag-name">#{{ $name }}</span>
           <span class="tag-count">({{ len $taxonomy }})</span>
         </a>
+        {{ else }}
+        <p style="color: var(--text-color); opacity: 0.5; font-style: italic; font-size: 0.9em;">No tags yet</p>
         {{ end }}
       </div>
     </aside>
