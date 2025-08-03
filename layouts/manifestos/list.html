@@ -1,0 +1,26 @@
+{{ define "main" }}
+<content>
+  <h1>{{ .Title }}</h1>
+  
+  <p>Each year on my birthday, I write a manifesto reflecting on the past year's learnings and setting intentions for the year ahead. It's a practice in intentionality and public accountability.</p>
+  
+  <hr>
+  
+  <ul class="blog-posts">
+    {{ range .Pages.ByDate.Reverse }}
+    <li>
+      <span>
+        <i>
+          {{ .Date.Format "2006" }}
+        </i>
+      </span>
+      <a href="{{ .Permalink }}">Manifesto {{ .Date.Format "2006" }}</a>
+    </li>
+    {{ else }}
+    <li>
+      No manifestos yet.
+    </li>
+    {{ end }}
+  </ul>
+</content>
+{{ end }}
