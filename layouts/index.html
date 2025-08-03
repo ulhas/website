@@ -12,8 +12,9 @@
 
 <h2>Recent Posts</h2>
 
-{{ $posts := where .Site.RegularPages "Section" "posts" }} {{ range first 3
-$posts.ByDate.Reverse }}
+{{ $posts := where .Site.RegularPages "Section" "posts" }}
+{{ if $posts }}
+{{ range first 3 $posts.ByDate.Reverse }}
 <article>
     <h3 style="margin-bottom: 0.1em">
         <a href="{{ .Permalink }}">{{ .Title }}</a>
@@ -31,6 +32,9 @@ $posts.ByDate.Reverse }}
     {{ end }}
 </article>
 {{ end }}
+{{ else }}
+<p style="color: #666; font-style: italic;">No posts yet.</p>
+{{ end }}
 
 <p><a href="/posts/">View all posts →</a></p>
 
@@ -43,7 +47,13 @@ $posts.ByDate.Reverse }}
     learnings and setting intentions for the year ahead.
 </p>
 
-<p><a href="/manifestos/2025/">Read my latest manifesto →</a></p>
+{{ $manifestos := where .Site.RegularPages "Section" "manifestos" }}
+{{ if $manifestos }}
+{{ $latest := index $manifestos.ByDate.Reverse 0 }}
+<p><a href="{{ $latest.Permalink }}">Read my latest manifesto →</a></p>
+{{ else }}
+<p style="color: #666; font-style: italic;">No manifestos yet.</p>
+{{ end }}
 
 <hr />
 
