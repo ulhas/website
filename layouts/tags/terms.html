@@ -1,0 +1,16 @@
+{{ define "main" }}
+<content>
+  <h1>All Tags</h1>
+  
+  <div class="tags-cloud">
+    {{ range .Data.Terms.Alphabetical }}
+    <a href="{{ .Page.Permalink }}" class="tag-item">
+      <span class="tag-name">#{{ .Page.Title }}</span>
+      <span class="tag-count">({{ .Count }})</span>
+    </a>
+    {{ end }}
+  </div>
+  
+  <p style="margin-top: 2em;"><a href="/posts/">← Back to posts</a></p>
+</content>
+{{ end }}

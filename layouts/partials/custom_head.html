@@ -9,6 +9,12 @@
     --link-color: #0066cc;
     --border-color: #e0e0e0;
     --code-bg: #f5f5f5;
+    /* Override Bear theme variables for consistency */
+    --background-color: #ffffff;
+    --heading-color: #222;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #666;
   }
   
   /* Dark theme colors */
@@ -18,6 +24,12 @@
     --link-color: #66b3ff;
     --border-color: #404040;
     --code-bg: #2a2a2a;
+    /* Override Bear theme variables for consistency */
+    --background-color: #1a1a1a;
+    --heading-color: #e0e0e0;
+    --code-background-color: #2a2a2a;
+    --code-color: #e0e0e0;
+    --blockquote-color: #ccc;
   }
   
   /* Base styles */
@@ -47,6 +59,24 @@
   /* Code blocks */
   code, pre {
     background-color: var(--code-bg);
+  }
+  
+  /* Blockquotes */
+  blockquote {
+    color: var(--blockquote-color);
+    border-left-color: var(--border-color);
+  }
+  
+  /* Pre code blocks */
+  pre {
+    padding: 1em;
+    overflow-x: auto;
+    background-color: var(--code-background-color);
+  }
+  
+  pre code {
+    background-color: transparent;
+    padding: 0;
   }
   
   /* Header layout improvements */
@@ -126,6 +156,234 @@
   /* Default to light theme - show moon icon */
   body:not([data-theme]) .fa-sun {
     display: none;
+  }
+  
+  /* Compact spacing adjustments */
+  /* Reduce spacing between posts */
+  article {
+    margin-bottom: 0.8em !important;
+  }
+  
+  /* Tighter heading spacing */
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 0.6em;
+    margin-bottom: 0.3em;
+  }
+  
+  /* Reduce paragraph spacing */
+  p {
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+  }
+  
+  /* Reduce hr margins for tighter sections */
+  hr {
+    margin: 1em 0;
+  }
+  
+  /* Tighter list spacing */
+  ul, ol {
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+  }
+  
+  /* Homepage specific adjustments */
+  main p + hr {
+    margin-top: 0.6em;
+  }
+  
+  /* Reduce footer margin */
+  footer {
+    margin-top: 1rem;
+  }
+  
+  /* Even tighter spacing for post metadata */
+  time {
+    margin-top: 0.1em;
+  }
+  
+  /* Reduce line height slightly for more compact feel */
+  body {
+    line-height: 1.4;
+  }
+  
+  /* Very tight spacing between post title and date */
+  article h3 {
+    margin-bottom: 0.1em !important;
+  }
+  
+  article time {
+    display: inline-block;
+    margin-top: 0;
+  }
+  
+  /* Pagination styles */
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2em;
+    padding-top: 1em;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9em;
+  }
+  
+  .pagination a {
+    color: var(--link-color);
+    text-decoration: none;
+  }
+  
+  .pagination a:hover {
+    text-decoration: underline;
+  }
+  
+  .pagination .disabled {
+    color: var(--border-color);
+    cursor: not-allowed;
+  }
+  
+  .pagination-info {
+    color: var(--text-color);
+    opacity: 0.7;
+  }
+  
+  /* Ensure consistent width for navigation items */
+  .pagination-prev,
+  .pagination-next {
+    min-width: 80px;
+  }
+  
+  .pagination-prev {
+    text-align: left;
+  }
+  
+  .pagination-next {
+    text-align: right;
+  }
+  
+  /* Tags styling */
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+    flex-wrap: wrap;
+    margin-bottom: 0.3em;
+  }
+  
+  .tags {
+    display: inline-flex;
+    gap: 0.4em;
+    flex-wrap: wrap;
+  }
+  
+  .tag {
+    font-size: 0.85em;
+    color: var(--link-color);
+    text-decoration: none;
+    margin-right: 0.3em;
+    transition: opacity 0.2s;
+  }
+  
+  .tag:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+  
+  /* Tags cloud on tags overview page */
+  .tags-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin: 1.5em 0;
+  }
+  
+  .tag-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+    text-decoration: none;
+    padding: 0.5em 0.8em;
+    background-color: var(--code-bg);
+    border-radius: 3px;
+    transition: opacity 0.2s;
+  }
+  
+  .tag-item:hover {
+    opacity: 0.8;
+    text-decoration: none;
+  }
+  
+  .tag-name {
+    color: var(--link-color);
+  }
+  
+  .tag-count {
+    color: var(--text-color);
+    opacity: 0.6;
+    font-size: 0.9em;
+  }
+  
+  /* Two-column layout for posts page */
+  .posts-layout {
+    display: flex;
+    gap: 3em;
+    align-items: flex-start;
+  }
+  
+  .posts-column {
+    flex: 1;
+    min-width: 0; /* Prevent overflow */
+  }
+  
+  .tags-sidebar {
+    flex: 0 0 200px;
+    position: sticky;
+    top: 2em;
+  }
+  
+  .tags-sidebar h3 {
+    margin-top: 0;
+    margin-bottom: 0.6em;
+    font-size: 1em;
+  }
+  
+  .sidebar-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+  }
+  
+  .sidebar-tag {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    padding: 0.2em 0;
+    transition: opacity 0.2s;
+    font-size: 0.85em;
+  }
+  
+  .sidebar-tag:hover {
+    opacity: 0.8;
+  }
+  
+  .sidebar-tag:hover .tag-name {
+    text-decoration: underline;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .posts-layout {
+      flex-direction: column;
+    }
+    
+    .tags-sidebar {
+      position: static;
+      width: 100%;
+      margin-top: 2em;
+      border-top: 1px solid var(--border-color);
+      padding-top: 1.5em;
+    }
   }
 </style>
 
