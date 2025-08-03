@@ -1,0 +1,21 @@
+{{ define "main" }}
+<content>
+  <h1>{{ .Title }}</h1>
+  
+  {{ range .Pages.ByDate.Reverse }}
+  <article style="margin-bottom: 2.5em;">
+    <h3 style="margin-bottom: 0.2em;"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+    <time datetime='{{ .Date.Format "2006-01-02" }}' style="font-size: 0.9em; color: #666;">
+      {{ .Date.Format (default "02 Jan, 2006" .Site.Params.dateFormat) }}
+    </time>
+    {{ with .Description }}
+    <p style="margin-top: 0.5em;">{{ . }}</p>
+    {{ else }}
+    <p style="margin-top: 0.5em;">{{ .Summary }}</p>
+    {{ end }}
+  </article>
+  {{ else }}
+  <p>No posts yet.</p>
+  {{ end }}
+</content>
+{{ end }}

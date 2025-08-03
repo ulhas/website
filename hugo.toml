@@ -1,4 +1,40 @@
-baseURL = 'https://oolhas.com/'
+baseURL = 'https://oolhaas.com/'
 languageCode = 'en-us'
 title = 'Ulhas'
 theme = 'hugo-bearblog'
+
+# Basic metadata
+author = "Ulhas"
+copyright = "Copyright © 2025, Ulhas."
+
+# Generate a nice robots.txt for SEO
+enableRobotsTXT = true
+
+# URL structure
+[permalinks]
+  posts = "/posts/:slug/"
+  manifestos = "/manifestos/:year/"
+
+[params]
+  # Site description for meta tags
+  description = "Personal website of Ulhas - thoughts on technology, philosophy, and building things that matter."
+
+  # Social media links (update these with your actual profiles)
+  github = "https://github.com/ulhas"
+  twitter = "https://twitter.com/oolhaas"
+  linkedin = "https://linkedin.com/in/ulhasm"
+  email = "hi@oolhaas.com"
+
+  # Date format
+  dateFormat = "02 Jan, 2006"
+
+# Menu configuration
+[menu]
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 1
+  [[menu.main]]
+    name = "Manifestos"
+    url = "/manifestos/"
+    weight = 2

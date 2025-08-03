@@ -1,0 +1,52 @@
+{{ define "main" }}
+<h1>Hi, I'm Ulhas</h1>
+
+<p>I'm a builder at heart. I have been coding since more than a fifteen years.</p>
+
+<p>Currently, I am a co-founder of <a href="https://procedure.tech">Procedure</a> and a Principal at <a href="https://workshop.dev">Workshop Venture Partners</a>.</p>
+
+<hr>
+
+<h2>Connect</h2>
+
+<p>
+{{ with .Site.Params.github }}<a href="{{ . }}">GitHub</a> · {{ end }}
+{{ with .Site.Params.twitter }}<a href="{{ . }}">Twitter</a> · {{ end }}
+{{ with .Site.Params.linkedin }}<a href="{{ . }}">LinkedIn</a> · {{ end }}
+{{ with .Site.Params.email }}<a href="mailto:{{ . }}">Email</a>{{ end }}
+</p>
+
+<hr>
+
+<h2>Recent Posts</h2>
+
+{{ $posts := where .Site.RegularPages "Section" "posts" }}
+{{ range first 3 $posts.ByDate.Reverse }}
+<article style="margin-bottom: 2em;">
+  <h3 style="margin-bottom: 0.2em;"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+  <time datetime='{{ .Date.Format "2006-01-02" }}' style="font-size: 0.9em; color: #666;">
+    {{ .Date.Format (default "02 Jan, 2006" .Site.Params.dateFormat) }}
+  </time>
+  {{ with .Description }}
+  <p style="margin-top: 0.5em;">{{ . }}</p>
+  {{ else }}
+  <p style="margin-top: 0.5em;">{{ .Summary }}</p>
+  {{ end }}
+</article>
+{{ end }}
+
+<p><a href="/posts/">View all posts →</a></p>
+
+<hr>
+
+<h2>Manifesto</h2>
+
+<p>Each year on my birthday, I write a manifesto reflecting on the past year's learnings and setting intentions for the year ahead.</p>
+
+<p><a href="/manifestos/2025/">Read my latest manifesto →</a></p>
+
+<hr>
+
+<p><em>This site is intentionally minimal. No tracking, no bloat, just words.</em></p>
+
+{{ end }}
