@@ -1,15 +1,52 @@
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <style>
-  /* Reduce font weight */
+  /* Light theme colors */
+  :root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --link-color: #0066cc;
+    --border-color: #e0e0e0;
+    --code-bg: #f5f5f5;
+  }
+  
+  /* Dark theme colors */
+  [data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --link-color: #66b3ff;
+    --border-color: #404040;
+    --code-bg: #2a2a2a;
+  }
+  
+  /* Base styles */
   body {
     font-weight: 400;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   
+  /* Headings */
   h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
+    font-weight: 700;
+    color: var(--text-color);
   }
   
+  /* Bold text */
   strong, b {
-    font-weight: 600;
+    font-weight: 700;
+  }
+  
+  /* Links */
+  a {
+    color: var(--link-color);
+  }
+  
+  /* Code blocks */
+  code, pre {
+    background-color: var(--code-bg);
   }
   
   /* Header layout improvements */
@@ -17,4 +54,95 @@
     margin-left: 20px;
     margin-right: 0;
   }
+  
+  /* Footer layout */
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-top: 1px solid var(--border-color);
+    margin-top: 2rem;
+  }
+  
+  .footer-left {
+    font-size: 0.9em;
+  }
+  
+  .footer-right a {
+    margin-left: 1rem;
+    color: var(--text-color);
+    text-decoration: none;
+  }
+  
+  .footer-right a:first-child {
+    margin-left: 0;
+  }
+  
+  .footer-right a:hover {
+    opacity: 0.7;
+  }
+  
+  /* Horizontal rules */
+  hr {
+    border: 0;
+    border-top: 1px solid var(--border-color);
+  }
+  
+  /* Theme toggle button */
+  .theme-toggle {
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    padding: 0.5rem 0.75rem;
+    margin-left: 1rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .theme-toggle:hover {
+    background-color: var(--code-bg);
+    opacity: 0.9;
+  }
+  
+  /* Show appropriate icon for each theme */
+  /* In light mode: show moon (to switch to dark) */
+  [data-theme="light"] .fa-sun {
+    display: none;
+  }
+  
+  /* In dark mode: show sun (to switch to light) */
+  [data-theme="dark"] .fa-moon {
+    display: none;
+  }
+  
+  /* Default to light theme - show moon icon */
+  body:not([data-theme]) .fa-sun {
+    display: none;
+  }
 </style>
+
+<script>
+  // Theme toggle functionality
+  (function() {
+    // Check for saved theme preference or default to 'light'
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    
+    // Theme toggle function
+    window.toggleTheme = function() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    }
+  })();
+</script>

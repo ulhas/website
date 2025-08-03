@@ -2,5 +2,11 @@
   <a href="{{ "" | relURL }}" class="title">
     <h2>{{ .Site.Title }}</h2>
   </a>
-  <nav>{{- partial "nav.html" . -}}</nav>
+  <div style="display: flex; align-items: center;">
+    <nav>{{- partial "nav.html" . -}}</nav>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+      <i class="fas fa-moon"></i>
+      <i class="fas fa-sun"></i>
+    </button>
+  </div>
 </div>
